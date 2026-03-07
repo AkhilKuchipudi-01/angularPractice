@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+  margin: 0;
+}
+
+:root {
+  --bg: rgb(246 246 248);
+  --textb: #000;
+  --textg: #727171;
+  --cardbg: #fff;
+  --br: #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #09090b;
+    --textb: #fff;
+    --textg: #aba9a9;
+    --cardbg: #000;
+    --br: rgb(55, 57, 59);
+  }
+}
