@@ -1,0 +1,130 @@
+<header class="header">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Premium<span class="accent">Design</span></span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="btn btn-secondary desktop-only">Login</button>
+                <button class="btn btn-primary desktop-only">Get Started</button>
+
+                <!-- Toggle button -->
+                <button class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Sidebar -->
+<div class="mobile-sidebar" [class.open]="isMenuOpen">
+    <div class="sidebar-header">
+        <div class="logo">
+            <span class="logo-text">Premium<span class="accent">Design</span></span>
+        </div>
+        <button class="close-btn" (click)="toggleMenu()">&times;</button>
+    </div>
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#" (click)="toggleMenu()" class="active">Home</a></li>
+            <li><a href="#" (click)="toggleMenu()">Solutions</a></li>
+            <li><a href="#" (click)="toggleMenu()">Features</a></li>
+            <li><a href="#" (click)="toggleMenu()">About</a></li>
+            <li><a href="#" (click)="toggleMenu()">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <button class="btn btn-primary full-width">Get Started</button>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="isMenuOpen" (click)="toggleMenu()"></div>
+
+<main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">New Release 2.0</span>
+                    <h1>Build your next big idea <span class="accent">faster than ever</span></h1>
+                    <p>Experience the most advanced design system to build high-converting landing pages. Everything you
+                        need to scale your business is right here.</p>
+                    <div class="hero-btns">
+                        <button class="btn btn-primary btn-lg">Start Free Trial</button>
+                        <button class="btn btn-outline btn-lg"><span class="play-icon"></span> Watch Demo</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <strong>25k+</strong>
+                            <span>Active Users</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <strong>99.9%</strong>
+                            <span>Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <div class="abstract-shape shape-1"></div>
+                        <div class="abstract-shape shape-2"></div>
+                        <div class="card-mockup">
+                            <div class="mockup-header"></div>
+                            <div class="mockup-body">
+                                <div class="mockup-line w-75"></div>
+                                <div class="mockup-line w-50"></div>
+                                <div class="mockup-line w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Unmatched performance & scale</h2>
+                <p>Our tools are designed to work seamlessly with your existing workflow, ensuring you spend less time
+                    on setup and more time on creation.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-blue">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Experience global sub-millisecond latency with our edge distribution network.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-purple">🔒</div>
+                    <h3>Safe & Secure</h3>
+                    <p>Enterprise-grade security and compliance out of the box for every project.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-pink">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>Hand-crafted components designed by the world's best UX/UI experts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
