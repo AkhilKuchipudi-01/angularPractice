@@ -1,0 +1,79 @@
+<div class="todoContainer">
+  <!-- HEADER SECTION -->
+  <header>
+    <h1>Task Master</h1>
+    <p>Exam Prep: Simple Angular CRUD</p>
+  </header>
+
+  <!-- INPUT SECTION: CREATE (C in CRUD) -->
+  <div class="inputCard">
+    <input 
+      type="text" 
+      [(ngModel)]="newTaskTitle" 
+      (keyup.enter)="addTask()" 
+      placeholder="What needs to be done?"
+      aria-label="New task title"
+    />
+    <button (click)="addTask()" [disabled]="!newTaskTitle.trim()">
+      <span class="material-symbols-rounded">add</span> ADD
+    </button>
+  </div>
+
+  <!-- LIST SECTION: READ & UPDATE & DELETE (R, U, D in CRUD) -->
+  <ul class="taskList">
+    <!-- *ngFor: Structural directive to loop through our tasks array -->
+    <li *ngFor="let task of tasks; let i = index" [class.completed]="task.completed">
+      
+      <!-- Checkbox for Toggling Completion (UPDATE) -->
+      <div class="taskInfo">
+        <input 
+          type="checkbox" 
+          [checked]="task.completed" 
+          (change)="toggleComplete(task)"
+        />
+        
+        <!-- Conditional Rendering: Edit Mode vs View Mode -->
+        <span *ngIf="!task.isEditing" (dblclick)="editTask(task)">
+          {{ task.title }}
+        </span>
+        
+        <input 
+          *ngIf="task.isEditing" 
+          type="text" 
+          [(ngModel)]="task.title" 
+          (blur)="saveTask(task)" 
+          (keyup.enter)="saveTask(task)"
+          autofocus
+        />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button class="btnIcon edit" (click)="editTask(task)" *ngIf="!task.isEditing">
+          <span class="material-symbols-rounded">edit</span>
+        </button>
+        <button class="btnIcon delete" (click)="deleteTask(task.id)">
+          <span class="material-symbols-rounded">delete</span>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="tasks.length === 0" class="emptyState">
+    <p>Nice work! All tasks are finished.</p>
+  </div>
+
+  <!-- FOOTER STATS -->
+  <footer class="stats">
+    <span>Total Tasks: {{ tasks.length }}</span>
+  </footer>
+</div>
+<!-- 
+  NOTE FOR EXAM:
+  1. [(ngModel)] -> Two-way data binding (syncs Input with TS variable)
+  2. *ngFor      -> Structural directive for repetition
+  3. *ngIf       -> Structural directive for conditional rendering
+  4. (click)     -> Event binding
+  5. {{ }}       -> Interpolation (one-way binding from TS to HTML)
+-->
