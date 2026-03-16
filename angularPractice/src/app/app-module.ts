@@ -1,4 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
@@ -10,6 +11,7 @@ import { Debouncing } from './components/debouncing/debouncing';
 import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './components/toast/toast';
 import { CommonModule } from '@angular/common';
+import { Weather } from './components/weather/weather';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { CommonModule } from '@angular/common';
     Carroussel,
     Debouncing,
     ToastComponent,
+    Weather,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
+    provideHttpClient(),
   ],
   bootstrap: [App]
 })

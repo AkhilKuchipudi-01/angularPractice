@@ -1,1 +1,65 @@
-<p>carroussel works!</p>
+<div class="container py-5">
+  <h2 class="mb-4 text-center">Carousel Learning - Exam Practice</h2>
+
+  <!-- Custom CSS Carousel (Pure HTML/CSS) -->
+  <section class="custom-carousel-section mb-5">
+    <h3 class="mb-3">1. Custom CSS Carousel (Pure HTML & CSS)</h3>
+    <div class="custom-carousel">
+      <div class="slides-container" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
+        <div class="slide" *ngFor="let img of images; let i = index">
+          <img [src]="img.url" [alt]="img.title">
+          <div class="caption">
+            <h4>{{ img.title }}</h4>
+            <p>{{ img.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="nav-btn prev" (click)="prev()">&#10094;</button>
+      <button class="nav-btn next" (click)="next()">&#10095;</button>
+
+      <!-- Indicators -->
+      <div class="indicators">
+        <span *ngFor="let img of images; let i = index" 
+              [class.active]="i === currentIndex"
+              (click)="setSlide(i)"></span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="my-5">
+
+  <!-- Bootstrap Carousel -->
+  <section class="bootstrap-carousel-section">
+    <h3 class="mb-3">2. Bootstrap Carousel</h3>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button *ngFor="let img of images; let i = index" 
+                type="button" 
+                data-bs-target="#carouselExampleCaptions" 
+                [attr.data-bs-slide-to]="i" 
+                [class.active]="i === 0" 
+                [attr.aria-current]="i === 0 ? 'true' : null" 
+                [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      </div>
+      <div class="carousel-inner rounded shadow">
+        <div class="carousel-item" *ngFor="let img of images; let i = index" [class.active]="i === 0">
+          <img [src]="img.url" class="d-block w-100" [alt]="img.title" style="height: 500px; object-fit: cover;">
+          <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 10px;">
+            <h5>{{ img.title }}</h5>
+            <p>{{ img.description }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+</div>
