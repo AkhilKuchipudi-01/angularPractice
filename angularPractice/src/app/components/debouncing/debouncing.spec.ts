@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileResponsive } from './mobile-responsive';
+import { Debouncing } from './debouncing';
 
-describe('MobileResponsive', () => {
-  let component: MobileResponsive;
-  let fixture: ComponentFixture<MobileResponsive>;
+describe('Debouncing', () => {
+  let component: Debouncing;
+  let fixture: ComponentFixture<Debouncing>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MobileResponsive]
+      declarations: [Debouncing]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MobileResponsive);
+    fixture = TestBed.createComponent(Debouncing);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
