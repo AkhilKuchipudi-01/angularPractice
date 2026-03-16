@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-lg border-0 rounded-4 mt-5 overflow-hidden">
+      <div class="card-header bg-primary text-white py-3 text-center">
+        <h2 class="mb-0"><i class="pi pi-cloud mr-2"></i> Weather App</h2>
+      </div>
+      
+      <div class="card-body p-4">
+        <!-- City Selection -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">Select City</label>
+          <select class="form-select form-select-lg rounded-3" (change)="onCityChange($event)">
+            <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+          </select>
+        </div>
+
+        <hr>
+
+        <!-- Loading State -->
+        <div *ngIf="loading" class="text-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-2 text-muted">Fetching latest data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+
+        <!-- Weather Display -->
+        <div *ngIf="!loading && !error && weatherData" class="weather-info animate-fade-in">
+          <div class="text-center py-4">
+            <div class="display-1 mb-3">
+              <i [class]="getWeatherIcon(weatherData.current_weather.weathercode)"></i>
+            </div>
+            <div class="display-4 fw-bold">
+              {{ weatherData.current_weather.temperature }}°C
+            </div>
+            <p class="text-muted text-uppercase fw-bold letter-spacing-1">
+              {{ selectedCity.name }}
+            </p>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-6">
+              <div class="p-3 bg-light rounded-3 text-center">
+                <i class="pi pi-send text-primary mb-2 d-block fs-4"></i>
+                <small class="text-muted d-block">Wind Speed</small>
+                <div class="fw-bold">{{ weatherData.current_weather.windspeed }} km/h</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="p-3 bg-light rounded-3 text-center">
+                <i class="pi pi-compass text-primary mb-2 d-block fs-4"></i>
+                <small class="text-muted d-block">Direction</small>
+                <div class="fw-bold">{{ weatherData.current_weather.winddirection }}°</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-4 pt-3 border-top">
+            <small class="text-muted">
+              Last updated: {{ weatherData.current_weather.time | date:'mediumTime' }}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Exam Notes -->
+    <div class="mt-4 p-3 bg-light rounded shadow-sm border">
+      <h6 class="fw-bold"><i class="pi pi-book me-2"></i>Exam Key Concepts:</h6>
+      <ul class="small mb-0">
+        <li><code>HttpClient.get()</code> returns an <code>Observable</code>.</li>
+        <li>Subscribe using <code>.subscribe(&lbrace; next, error &rbrace;)</code>.</li>
+        <li>Use <code>*ngIf</code> to handle loading and error states.</li>
+        <li>Interpolation: use double curly braces to show dynamic values.</li>
+        <li>Date Pipe <code>| date:'mediumTime'</code> for formatting time.</li>
+      </ul>
+    </div>
+  </div>
+</div>
