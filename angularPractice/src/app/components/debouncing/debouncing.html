@@ -1,1 +1,68 @@
-<p>debouncing works!</p>
+<div class="shopContainer">
+  <header>
+    <h1>Modern Shop</h1>
+    <p>Premium Items, Handpicked for You</p>
+  </header>
+
+  <!-- SEARCH & FILTER -->
+  <div class="controlsCard">
+    <div class="searchBar">
+      <span class="material-symbols-rounded">search</span>
+      <input 
+        type="text" 
+        placeholder="Search products..." 
+        (keyup)="onSearch($event)"
+      />
+    </div>
+
+    <div class="categoryChips">
+      <button 
+        *ngFor="let cat of categories" 
+        [class.active]="activeCategory === cat" 
+        (click)="setCategory(cat)"
+      >
+        {{ cat }}
+      </button>
+    </div>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <div class="productGrid" *ngIf="paginatedProducts.length > 0">
+    <div class="productCard" *ngFor="let product of paginatedProducts">
+      <div class="imgWrapper">
+        <img [src]="product.image" [alt]="product.name">
+        <span class="categoryTag">{{ product.category }}</span>
+      </div>
+      <div class="cardContent">
+        <h3>{{ product.name }}</h3>
+        <p class="price">${{ product.price }}</p>
+        <button class="addToCart" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="emptyState" *ngIf="paginatedProducts.length === 0">
+    <span class="material-symbols-rounded">search_off</span>
+    <p>No products match your search or filter.</p>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">
+      <span class="material-symbols-rounded">west</span> Prev
+    </button>
+    
+    <div class="pageDots">
+      <span 
+        *ngFor="let p of [].constructor(totalPages); let i = index" 
+        [class.active]="currentPage === (i + 1)"
+        (click)="changePage(i + 1)"
+      ></span>
+    </div>
+
+    <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">
+      Next <span class="material-symbols-rounded">east</span>
+    </button>
+  </div>
+</div>

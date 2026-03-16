@@ -1,0 +1,18 @@
+<div class="toast-container">
+    @for (toast of toasts$ | async; track toast.id) {
+    <div class="toast-item" [class]="toast.type" (click)="remove(toast.id)">
+        <div class="toast-icon">
+            <i [class]="getIcon(toast.type)"></i>
+        </div>
+        <div class="toast-content">
+            <span class="toast-message">{{ toast.message }}</span>
+        </div>
+        <div class="toast-close">
+            <i class="pi pi-times"></i>
+        </div>
+        <div class="toast-progress">
+            <div class="progress-bar" [style.animation-duration.ms]="toast.duration"></div>
+        </div>
+    </div>
+    }
+</div>
