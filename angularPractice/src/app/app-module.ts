@@ -8,6 +8,8 @@ import { Todo } from './components/todo/todo';
 import { Carroussel } from './components/carroussel/carroussel';
 import { Debouncing } from './components/debouncing/debouncing';
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './components/toast/toast';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -16,11 +18,13 @@ import { FormsModule } from '@angular/forms';
     Todo,
     Carroussel,
     Debouncing,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

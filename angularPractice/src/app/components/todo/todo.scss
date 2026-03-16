@@ -1,4 +1,5 @@
-/* @import "primeicons/primeicons.css"; */ // Removing PrimeIcons as requested to use Material Symbols
+/* @import "primeicons/primeicons.css"; */
+// Removing PrimeIcons as requested to use Material Symbols
 
 .todoContainer {
   max-width: 500px;
@@ -105,6 +106,7 @@
 
     &.completed {
       background: #fdfdfd;
+
       .taskInfo span {
         text-decoration: line-through;
         color: #b2bec3;
@@ -149,16 +151,24 @@
         cursor: pointer;
         transition: background 0.2s;
 
-        span.material-symbols-rounded { font-size: 1.2rem; }
+        span.material-symbols-rounded {
+          font-size: 1.2rem;
+        }
 
         &.edit {
           color: #0984e3;
-          &:hover { background: #e1f5fe; }
+
+          &:hover {
+            background: #e1f5fe;
+          }
         }
 
         &.delete {
           color: #d63031;
-          &:hover { background: #ffebee; }
+
+          &:hover {
+            background: #ffebee;
+          }
         }
       }
     }
