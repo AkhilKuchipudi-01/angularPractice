@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 /**
  * Task Interface: Defines the structure of a Todo item.
@@ -18,13 +19,18 @@ interface Task {
   styleUrl: './todo.scss',
 })
 export class Todo {
+  private messageService = inject(MessageService);
   // 1. STATE: These variables hold the data for our component.
   tasks: Task[] = [
     { id: 1, title: 'Learn Angular Directives', completed: true },
     { id: 2, title: 'Understand CRUD Operations', completed: false },
   ];
 
-  newTaskTitle: string = ''; // Used for two-way binding [(ngModel)]
+  newTaskTitle = ''; // Used for two-way binding [(ngModel)]
+
+  show() {
+    this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+  }
 
   /**
    * CREATE: Adds a new task to the list.
