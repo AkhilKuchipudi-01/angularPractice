@@ -1,0 +1,15 @@
+<div class="weather-box">
+  <h2>Weather Report</h2>
+  
+  <input [(ngModel)]="city" (keyup.enter)="fetchWeather()" placeholder="Enter City (e.g. Eluru)">
+  <button (click)="fetchWeather()">Search</button>
+
+  <p *ngIf="error" style="color: red;">{{ error }}</p>
+
+  <div *ngIf="weather">
+    <h3>Weather Found!</h3>
+    <!-- Open-Meteo structure: weather.current_weather.temperature -->
+    <p>Temperature: {{ weather.current_weather.temperature }}°C</p>
+    <p>Wind Speed: {{ weather.current_weather.windspeed }} km/h</p>
+  </div>
+</div>
