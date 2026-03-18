@@ -18,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SimpleWeather } from './components/simple-weather/simple-weather';
+import { Sidebar } from './components/sidebar/sidebar';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SimpleWeather } from './components/simple-weather/simple-weather';
     ToastComponent,
     Weather,
     SimpleWeather,
+    Sidebar,
   ],
   imports: [
     BrowserModule,

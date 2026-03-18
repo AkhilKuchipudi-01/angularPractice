@@ -1,20 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-  <div class="container">
-    <a class="navbar-brand" href="#">Angular Practice</a>
-    <div class="navbar-nav">
-      <a class="nav-link" routerLink="/todo" routerLinkActive="active">Todo</a>
-      <a class="nav-link" routerLink="/debouncing" routerLinkActive="active">Debouncing</a>
-      <a class="nav-link" routerLink="/carousel" routerLinkActive="active">Carousel</a>
-      <a class="nav-link" routerLink="/weather" routerLinkActive="active">Weather</a>
+<div class="app-layout">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">Angular Practice</a>
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="/todo" routerLinkActive="active">Todo</a>
+          <a class="nav-link" routerLink="/debouncing" routerLinkActive="active">Debouncing</a>
+          <a class="nav-link" routerLink="/carousel" routerLinkActive="active">Carousel</a>
+          <a class="nav-link" routerLink="/weather" routerLinkActive="active">Weather</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <router-outlet></router-outlet>
     </div>
   </div>
-</nav>
-
-<div class="container">
-  <router-outlet></router-outlet>
 </div>
 
 <app-toast></app-toast>
+
 <!-- 
 <div class="table-container">
   <h2>User Management</h2>

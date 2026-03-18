@@ -1,79 +1,27 @@
-// .table-container {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     flex-direction: column;
-//     width: 100%;
-// }
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
 
-// table {
-//     width: 90%;
-//     /* 1. Must change to separate for radius to work */
-//     border-collapse: separate;
-//     /* 2. Set spacing to 0 so it still looks collapsed */
-//     border-spacing: 0;
-//     // margin: 20px 0;
-//     font-family: sans-serif;
-//     border: 1px solid #a9a9a9;
-//     /* 3. Apply the radius to the table container */
-//     border-radius: 12px;
-//     /* 4. Ensures background colors don't bleed past the corners */
-//     overflow: hidden;
-// }
+.main-content {
+  flex-grow: 1;
+  margin-left: 260px;
+  /* Width of the fixed sidebar */
+  background-color: #0f172a;
+  min-height: 100vh;
+  color: #e2e8f0;
 
-// th,
-// td {
-//     border-bottom: 1px solid #ccc;
-//     border-right: 1px solid #ccc;
-//     padding: 10px;
-//     text-align: left;
-// }
+  .navbar {
+    background-color: rgba(30, 41, 59, 0.8) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
 
-// /* Remove the "double border" effect on the far right and bottom */
-// th:last-child,
-// td:last-child {
-//     border-right: none;
-// }
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
 
-// tr:last-child td {
-//     border-bottom: none;
-// }
-
-// /* Header styling */
-// th {
-//     background-color: #f2f2f2;
-//     color: #333;
-// }
-
-// /* Zebra striping & Hover */
-// // tr:nth-child(even) {
-// //     background-color: #fafafa;
-// // }
-
-// tr:hover {
-//     background-color: #f1f1f1;
-// }
-
-// .pill {
-//     display: flex;
-//     align-items: center;
-//     gap: 10px;
-
-//     .pillBg {
-//         display: flex;
-//         width: 100px;
-//         height: 10px;
-//         border-radius: 10px;
-//         background-color: #c3c3c3;
-//         position: relative;
-//     }
-
-//     .pillFg {
-//         width: 50px;
-//         height: 10px;
-//         border-radius: 10px;
-//         background-color: #39e453;
-//         position: absolute;
-
-//     }
-// }
+// Keep previous styles for reference (though most are commented)
+/* ... */
